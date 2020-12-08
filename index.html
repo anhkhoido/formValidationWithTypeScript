@@ -17,18 +17,33 @@
 <body>
     <section>
         <form action="">
-            <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname">
+            <fieldset>
+                <legend>Identification</legend>
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" name="firstname">
 
+                <br />
+
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" name="lastname">
+            </fieldset>
+            
             <br />
 
-            <label for="">Last name</label>
-            <input type="text" id="lastname" name="lastname">
+            <fieldset>
+                <legend>Residence</legend>
+                <label for="addressline1">Address line 1</label>
+                <input type="text" id="addressline1" name="addressline1">
+            </fieldset>
 
-            <button type="submit">Submit</button>
+            <br />
+            
+            <button type="button" id="submitButton">Submit</button>
             <button type="reset">Clear form</button>
         </form>
     </section>
+
+    <script src="validation.js"></script>
 </body>
 
 </html>
