@@ -8,11 +8,11 @@ const postalCode = document.getElementById('postalcode') as HTMLInputElement;
 const submitButton = document.getElementById('submitButton');
 
 submitButton.addEventListener("click", function() : boolean {
-    return validateFirstOrLastName(firstName.value) && validateFirstOrLastName(lastName.value) && validateAddress(addressline1.value) && validatePostalCode(postalCode.value);
+    return validateFirstOrLastName(firstName.value.trim()) && validateFirstOrLastName(lastName.value.trim()) && validateAddress(addressline1.value.trim()) && validatePostalCode(postalCode.value.trim());
 });
 
 function validateFirstOrLastName(name : string) : boolean {
-    return false;
+    return name.length !== 0;
 }
 
 function validateAddress(line : string) : boolean {
@@ -20,9 +20,9 @@ function validateAddress(line : string) : boolean {
 }
 
 function validatePostalCode(postalCode : string) : boolean {
-    return false;
+    return postalCode.length !== 0;
 }
 
 function validateEmailAddress(email : string) : boolean {
-    return false;
+    return email.length !== 0;
 }
