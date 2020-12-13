@@ -21,17 +21,17 @@ submitButton.addEventListener("click", function() {
 });
 
 function validateApplicationForm() {
-    let firstNameValid = validateFirstOrLastName(firstName.value);
-    let lastNameValid = validateFirstOrLastName(lastName.value);
+    let firstNameValid = validateFirstOrLastName(firstName.value, firstName);
+    let lastNameValid = validateFirstOrLastName(lastName.value, lastName);
     let postalCodeValid = validatePostalCode(postalCode.value);
 }
 
-function validateFirstOrLastName(name : string) : boolean {
-    if (name.length === 0) {
-        return false;
-    } else if (firstLastNameRegexp.test(name)) {
+function validateFirstOrLastName(name : string, field : HTMLInputElement) : boolean {
+    if (firstLastNameRegexp.test(name)) {
+        field.style.backgroundColor = "";
         return true;
     }
+    field.style.backgroundColor = "#cc6666";
     return false;
 }
 
@@ -44,12 +44,12 @@ function validateAddress(line : string) : boolean {
     return false;
 }
 
-function validatePostalCode(postalCode : string) : boolean {
-    if (postalCode.length === 0) {
-        return false;
-    } else if (postalCodeRegExp.test(postalCode)) {
+function validatePostalCode(postal_code : string) : boolean {
+    if (postalCodeRegExp.test(postal_code)) {
+        postalCode.style.backgroundColor = "";
         return true;
     }
+    postalCode.style.backgroundColor = "#cc6666";
     return false;
 }
 
