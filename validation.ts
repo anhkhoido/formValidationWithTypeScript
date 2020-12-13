@@ -14,7 +14,7 @@ const firstLastNameRegexp : RegExp = /[A-Za-z -'\xC9\xE9\xE8\xC8\xC0\xE0\xC7\xE7
 const addressRegularExpression = new RegExp("");
 const phoneNumberRegExp = new RegExp("");
 const emailRegularExpression = new RegExp("");
-const postalCodeRegExp = new RegExp("");
+const postalCodeRegExp = /[A-Za-z]{1}\d{1}[A-Za-z]{1} {1}\d{1}[A-Za-z]{1}\d{1}|[A-Za-z]{1}\d{1}[A-Za-z]{1}\d{1}[A-Za-z]{1}\d{1}/i;
 
 submitButton.addEventListener("click", function() {
     validateApplicationForm();
@@ -23,6 +23,7 @@ submitButton.addEventListener("click", function() {
 function validateApplicationForm() {
     let firstNameValid = validateFirstOrLastName(firstName.value);
     let lastNameValid = validateFirstOrLastName(lastName.value);
+    let postalCodeValid = validatePostalCode(postalCode.value);
 }
 
 function validateFirstOrLastName(name : string) : boolean {
