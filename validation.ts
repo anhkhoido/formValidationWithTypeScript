@@ -10,18 +10,23 @@ const postalCode = document.getElementById('postalcode') as HTMLInputElement;
 
 const submitButton = document.getElementById('submitButton');
 
-const firstLastNameRegexp = new RegExp("");
+const firstLastNameRegexp : RegExp = /[A-Za-z ]{2,}/i;
 const addressRegularExpression = new RegExp("");
 const phoneNumberRegExp = new RegExp("");
 const emailRegularExpression = new RegExp("");
 const postalCodeRegExp = new RegExp("");
 
-submitButton.addEventListener("click", function() : boolean {
-    return validateFirstOrLastName(firstName.value.trim()) && validateFirstOrLastName(lastName.value.trim()) && validateAddress(addressline1.value.trim()) && validatePostalCode(postalCode.value.trim());
+submitButton.addEventListener("click", function() {
+    validateApplicationForm();
 });
 
+function validateApplicationForm() {
+    let firstNameValid = validateFirstOrLastName(firstName.value);
+    let lastNameValid = validateFirstOrLastName(lastName.value);
+}
+
 function validateFirstOrLastName(name : string) : boolean {
-    if (name.length !== 0) {
+    if (name.length === 0) {
         return false;
     } else if (firstLastNameRegexp.test(name)) {
         return true;
@@ -39,7 +44,7 @@ function validateAddress(line : string) : boolean {
 }
 
 function validatePostalCode(postalCode : string) : boolean {
-    if (postalCode.length !== 0) {
+    if (postalCode.length === 0) {
         return false;
     } else if (postalCodeRegExp.test(postalCode)) {
         return true;
@@ -48,7 +53,7 @@ function validatePostalCode(postalCode : string) : boolean {
 }
 
 function validateEmailAddress(email : string) : boolean {
-    if (email.length !== 0) {
+    if (email.length === 0) {
         return false;
     } else if (emailRegularExpression.test(email)) {
         return true;
