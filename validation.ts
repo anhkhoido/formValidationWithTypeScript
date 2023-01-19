@@ -61,3 +61,7 @@ function validatePostalCode(postal_code : string) : boolean {
     postalCode.style.backgroundColor = "#cc6666";
     return false;
 }
+
+function add_experience() {
+    alert("Bumbaclot!")
+}
