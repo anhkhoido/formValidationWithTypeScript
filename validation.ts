@@ -22,10 +22,17 @@ function validateApplicationForm() : boolean {
     const lastNameValid : boolean = validateFirstOrLastName(lastName.value, lastName);
     const postalCodeValid : boolean = validatePostalCode(postalCode.value);
     const phoneNumberValid : boolean = validatePhoneNumber(phoneNumber.value);
-    return  firstNameValid &&
-            lastNameValid &&
-            postalCodeValid &&
-            phoneNumberValid;
+
+    const result =  firstNameValid &&
+                    lastNameValid &&
+                    postalCodeValid &&
+                    phoneNumberValid;
+    if (result) {
+        alert('Thank you for applying!');
+    } else {
+        alert('Please review invalid fields.');
+    }
+    return  result;
 }
 
 function validateFirstOrLastName(name : string, field : HTMLInputElement) : boolean {
