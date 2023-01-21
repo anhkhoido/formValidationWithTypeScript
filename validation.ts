@@ -75,34 +75,32 @@ function validatePostalCode(postal_code : string) : boolean {
 
 function addEducation() : void {
     const fieldsetEducation = document.getElementById('educationContainerId') as HTMLElement;
-    
-    var breakLine = document.createElement('br');
+    const childNodeDivBoxForEducation = createDivBoxForEducation();
+    fieldsetEducation.appendChild(childNodeDivBoxForEducation);
+}
 
-    var divBox = document.createElement('div');
-    divBox.style.display = 'block';
-    divBox.style.width = '70%';
-    divBox.style.borderColor = '#000';
-    divBox.style.border = '5px solid #000';
-    divBox.style.margin = '5px';
-    
-    var establishmentLegend = document.createElement('label');
+function createDivBoxForEducation() : HTMLDivElement {
+    let divBoxForEducation = document.createElement('div') as HTMLDivElement;
+    const breakLine = document.createElement('br') as HTMLBRElement;
+    divBoxForEducation.style.display = 'block';
+    divBoxForEducation.style.width = '70%';
+    divBoxForEducation.style.borderColor = '#000';
+    divBoxForEducation.style.border = '5px solid #000';
+    divBoxForEducation.style.borderRadius = '20px';
+    divBoxForEducation.style.margin = '10px';
+    divBoxForEducation.style.padding = '20px';
+    let establishmentLegend = document.createElement('label');
     establishmentLegend.innerText = 'Establishment';
-
-    var establishmentInputField = document.createElement('input');
+    let establishmentInputField = document.createElement('input');
     establishmentInputField.type = 'text';
-
-
-    var programLegend = document.createElement('label');
+    let programLegend = document.createElement('label');
     programLegend.innerText = 'Program';
-
-    var programInputField = document.createElement('input');
+    let programInputField = document.createElement('input');
     programInputField.type = 'text';
-
-    divBox.appendChild(establishmentLegend);
-    divBox.appendChild(establishmentInputField);
-    divBox.appendChild(breakLine);
-    divBox.appendChild(programLegend);
-    divBox.appendChild(programInputField);
-
-    fieldsetEducation.appendChild(divBox);
+    divBoxForEducation.appendChild(establishmentLegend);
+    divBoxForEducation.appendChild(establishmentInputField);
+    divBoxForEducation.appendChild(breakLine);
+    divBoxForEducation.appendChild(programLegend);
+    divBoxForEducation.appendChild(programInputField);
+    return divBoxForEducation;
 }
