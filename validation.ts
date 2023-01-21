@@ -115,5 +115,31 @@ function addProfessionalExperience() : void {
 
 function createProfessionalExperienceDiv() : HTMLDivElement {
     let divElementProfessionalExp = document.createElement('div');
+    const breakLine = document.createElement('br') as HTMLBRElement;
+    divElementProfessionalExp.style.display = 'block';
+    divElementProfessionalExp.style.width = '70%';
+    divElementProfessionalExp.style.borderColor = '#000';
+    divElementProfessionalExp.style.border = '5px solid #000';
+    divElementProfessionalExp.style.borderRadius = '20px';
+    divElementProfessionalExp.style.margin = '10px';
+    divElementProfessionalExp.style.padding = '20px';
+
+    let employerLabel = document.createElement('label');
+    employerLabel.innerText = 'Employer';
+
+    let employerInputField = document.createElement('input');
+    employerInputField.type = 'text';
+
+    let positionLabel = document.createElement('label');
+    positionLabel.innerText = 'Position';
+
+    let positionInputField = document.createElement('input');
+    positionInputField.type = 'text';
+
+    divElementProfessionalExp.appendChild(employerLabel);
+    divElementProfessionalExp.appendChild(employerInputField);
+    divElementProfessionalExp.appendChild(breakLine);
+    divElementProfessionalExp.appendChild(positionLabel);
+    divElementProfessionalExp.appendChild(positionInputField);
     return divElementProfessionalExp;
 }
