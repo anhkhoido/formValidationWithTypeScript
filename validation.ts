@@ -155,6 +155,11 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     let removeButton = document.createElement('button') as HTMLButtonElement;
     removeButton.type = 'button';
     removeButton.className = 'bi bi-trash';
+
+    removeButton.addEventListener("click", function() {
+        alert("Removing index: " + futureIndex);
+    }, false);
+
     let buttonContainer = document.createElement('div');
     buttonContainer.appendChild(removeButton);
     divElementProfessionalExp.appendChild(buttonContainer);
