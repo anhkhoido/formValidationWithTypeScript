@@ -143,6 +143,10 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     fieldsAndInputsContainer.appendChild(positionLabel);
     fieldsAndInputsContainer.appendChild(positionInputField);
 
+    divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
+
+    let listOfProfessionalExperiences : any = document.querySelector('#professionalExperienceContainerId');
+    let futureIndex : number = listOfProfessionalExperiences?.childElementCount;
     let removeButton = document.createElement('button');
     removeButton.className = 'bi bi-trash';
     removeButton.id = 'removeProfessionalExperienceButton'
@@ -150,8 +154,6 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
 
     let buttonContainer = document.createElement('div');
     buttonContainer.appendChild(removeButton);
-
-    divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
     divElementProfessionalExp.appendChild(buttonContainer);
     return divElementProfessionalExp;
 }
