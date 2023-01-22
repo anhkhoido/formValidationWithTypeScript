@@ -158,7 +158,11 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
 
     let buttonContainer = document.createElement('div');
     removeButton.addEventListener("click", function() {
-        alert("Removing index: " + futureIndex);
+        var listOfProfessionalExps : any = document.querySelector('#professionalExperienceContainerId');
+        if (listOfProfessionalExps?.hasChildNodes()) {
+            var children = listOfProfessionalExps.children;
+            listOfProfessionalExps.removeChild(children[futureIndex]);
+        }
     }, false);
     buttonContainer.appendChild(removeButton);
     divElementProfessionalExp.appendChild(buttonContainer);
