@@ -15,6 +15,7 @@
 
 <link href="style/stylesheet.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -60,8 +61,8 @@
 
             <fieldset>
                 <legend>Professional experience</legend>
-                <div id="professionalExperienceContainerId">&nbsp;</div>
-                <button type="button" class="add_experience_button" id ="addProfessionalExperienceButtonId">Add experience</button>
+                <div id="professionalExperienceContainerId"></div>
+                <button type="button" class="add_experience_button bi bi-plus-circle" id ="addProfessionalExperienceButtonId">&nbsp;</button>
             </fieldset>
 
             <br />
@@ -69,7 +70,10 @@
             <fieldset>
                 <legend>Education</legend>
                 <div id="educationContainerId"></div>
-                <div><button type="button" id="addEducationButtonId">+</button></div>
+                <div>
+                    <button type="button" class="bi bi-plus-circle" id="addEducationButtonId">&nbsp;</button>
+                    <button type="button" class="bi bi-trash">&nbsp;</button>
+                </div>
             </fieldset>
 
             <br />

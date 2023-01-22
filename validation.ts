@@ -91,6 +91,7 @@ function createDivBoxForEducation() : HTMLDivElement {
     divBoxForEducation.style.borderRadius = '20px';
     divBoxForEducation.style.margin = '10px';
     divBoxForEducation.style.padding = '20px';
+    
     let establishmentLegend = document.createElement('label');
     establishmentLegend.innerText = 'Establishment';
     let establishmentInputField = document.createElement('input');
@@ -99,11 +100,14 @@ function createDivBoxForEducation() : HTMLDivElement {
     programLegend.innerText = 'Program';
     let programInputField = document.createElement('input');
     programInputField.type = 'text';
+    
+
     divBoxForEducation.appendChild(establishmentLegend);
     divBoxForEducation.appendChild(establishmentInputField);
     divBoxForEducation.appendChild(breakLine);
     divBoxForEducation.appendChild(programLegend);
     divBoxForEducation.appendChild(programInputField);
+    
     return divBoxForEducation;
 }
 
@@ -136,10 +140,31 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     let positionInputField = document.createElement('input');
     positionInputField.type = 'text';
 
-    divElementProfessionalExp.appendChild(employerLabel);
-    divElementProfessionalExp.appendChild(employerInputField);
-    divElementProfessionalExp.appendChild(breakLine);
-    divElementProfessionalExp.appendChild(positionLabel);
-    divElementProfessionalExp.appendChild(positionInputField);
+    let fieldsAndInputsContainer = document.createElement('div');
+    fieldsAndInputsContainer.appendChild(employerLabel);
+    fieldsAndInputsContainer.appendChild(employerInputField);
+    fieldsAndInputsContainer.appendChild(breakLine);
+    fieldsAndInputsContainer.appendChild(positionLabel);
+    fieldsAndInputsContainer.appendChild(positionInputField);
+
+    divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
+
+    let listOfProfessionalExperiences : any = document.querySelector('#professionalExperienceContainerId');
+    let futureIndex : number = listOfProfessionalExperiences?.childElementCount;
+   
+    let removeButton = document.createElement('button') as HTMLButtonElement;
+    removeButton.type = 'button';
+    removeButton.className = 'bi bi-trash';
+
+    let buttonContainer = document.createElement('div');
+    removeButton.addEventListener("click", function() {
+        var listOfProfessionalExps : any = document.querySelector('#professionalExperienceContainerId');
+        if (listOfProfessionalExps?.hasChildNodes()) {
+            var children = listOfProfessionalExps.children;
+            listOfProfessionalExps.removeChild(children[futureIndex]);
+        }
+    }, false);
+    buttonContainer.appendChild(removeButton);
+    divElementProfessionalExp.appendChild(buttonContainer);
     return divElementProfessionalExp;
 }
