@@ -77,8 +77,23 @@ function validatePostalCode(postal_code : string) : boolean {
 
 function addEducation() : void {
     const fieldsetEducation = document.getElementById('educationContainerId') as HTMLElement;
+    var indexInListOfTrainings = document.querySelectorAll('.removeEducationButton').length as number;
     const childNodeDivBoxForEducation = createDivBoxForEducation();
     fieldsetEducation.appendChild(childNodeDivBoxForEducation);
+    const removeButtonsEducationList = document.querySelectorAll('.removeEducationButton') as NodeListOf<HTMLButtonElement>;
+    configureRemoveButtonForEducation(removeButtonsEducationList[indexInListOfTrainings], indexInListOfTrainings);
+}
+
+function configureRemoveButtonForEducation(button : HTMLButtonElement, index : number) : void {
+    button.addEventListener("click", function() {
+        removeSpecificEducationAt(index);
+    }, false);
+}
+
+function removeSpecificEducationAt(index : number) {
+    let parentContainerWithEducation = document.getElementById('educationContainerId') as HTMLDivElement;
+    let educationSlatedForRemoval = parentContainerWithEducation.childNodes[index];
+    educationSlatedForRemoval.parentNode?.removeChild(educationSlatedForRemoval);
 }
 
 function createDivBoxForEducation() : HTMLDivElement {
@@ -100,7 +115,6 @@ function createDivBoxForEducation() : HTMLDivElement {
     programLegend.innerText = 'Program';
     let programInputField = document.createElement('input');
     programInputField.type = 'text';
-    
 
     divBoxForEducation.appendChild(establishmentLegend);
     divBoxForEducation.appendChild(establishmentInputField);
