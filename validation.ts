@@ -108,6 +108,13 @@ function createDivBoxForEducation() : HTMLDivElement {
     divBoxForEducation.appendChild(programLegend);
     divBoxForEducation.appendChild(programInputField);
     
+    let buttonContainer = document.createElement('div');
+    let removeButton = document.createElement('button') as HTMLButtonElement;
+    removeButton.type = 'button';
+    removeButton.className = 'bi bi-trash removeEducationButton';
+    buttonContainer.appendChild(removeButton);
+    divBoxForEducation.appendChild(buttonContainer);
+
     return divBoxForEducation;
 }
 
