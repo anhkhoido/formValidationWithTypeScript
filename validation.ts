@@ -115,6 +115,14 @@ function addProfessionalExperience() : void {
     let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId');
     const professionalExpChildNode = createProfessionalExperienceDiv();
     professionalExpContainerDiv?.appendChild(professionalExpChildNode);
+    var removeJobButtonCollection = document.querySelectorAll('.removeJobButton');
+    removeJobButtonCollection.forEach(
+        function(currentValue, currentIndex) {
+            currentValue.addEventListener("click", function() {
+                alert(currentIndex);
+            });
+        }
+    );
 }
 
 function createProfessionalExperienceDiv() : HTMLDivElement {
@@ -148,22 +156,12 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     fieldsAndInputsContainer.appendChild(positionInputField);
 
     divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
-
-    let listOfProfessionalExperiences : any = document.querySelector('#professionalExperienceContainerId');
-    let futureIndex : number = listOfProfessionalExperiences?.childElementCount;
    
     let removeButton = document.createElement('button') as HTMLButtonElement;
     removeButton.type = 'button';
-    removeButton.className = 'bi bi-trash';
+    removeButton.className = 'bi bi-trash removeJobButton';
 
     let buttonContainer = document.createElement('div');
-    removeButton.addEventListener("click", function() {
-        var listOfProfessionalExps : any = document.querySelector('#professionalExperienceContainerId');
-        if (listOfProfessionalExps?.hasChildNodes()) {
-            var children = listOfProfessionalExps.children;
-            listOfProfessionalExps.removeChild(children[futureIndex]);
-        }
-    }, false);
     buttonContainer.appendChild(removeButton);
     divElementProfessionalExp.appendChild(buttonContainer);
     return divElementProfessionalExp;
