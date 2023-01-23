@@ -112,20 +112,27 @@ function createDivBoxForEducation() : HTMLDivElement {
 }
 
 function addProfessionalExperience() : void {
-    let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId');
-    const professionalExpChildNode = createProfessionalExperienceDiv();
-    professionalExpContainerDiv?.appendChild(professionalExpChildNode);
-    var removeJobButtonCollection = document.querySelectorAll('.removeJobButton');
-    removeJobButtonCollection.forEach(
-        function(currentValue, currentIndex) {
-            currentValue.addEventListener("click", function() {
-                alert(currentIndex);
-            });
-        }
-    );
+    let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+    var futureIndexInListOfJobs = document.querySelectorAll('.removeJobButton').length;
+    const professionalExpChildNode = createProfessionalExperienceDiv(futureIndexInListOfJobs) as HTMLDivElement;
+    professionalExpContainerDiv.appendChild(professionalExpChildNode);
+    const removeJobButtonsList = document.querySelectorAll('.removeJobButton') as NodeListOf<HTMLButtonElement>;
+    configureRemoveButton(removeJobButtonsList[futureIndexInListOfJobs], futureIndexInListOfJobs);
 }
 
-function createProfessionalExperienceDiv() : HTMLDivElement {
+function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
+    button.addEventListener("click", function() {
+        removeSpecificJobAt(index);
+    }, false);
+}
+
+function removeSpecificJobAt(index : number) {
+    let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+    let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
+    jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
+}
+
+function createProfessionalExperienceDiv(futureIndex : number) : HTMLDivElement {
     let divElementProfessionalExp = document.createElement('div');
     const breakLine = document.createElement('br') as HTMLBRElement;
     divElementProfessionalExp.style.display = 'block';
