@@ -114,7 +114,7 @@ function createDivBoxForEducation() : HTMLDivElement {
 function addProfessionalExperience() : void {
     let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
     var futureIndexInListOfJobs = document.querySelectorAll('.removeJobButton').length;
-    const professionalExpChildNode = createProfessionalExperienceDiv(futureIndexInListOfJobs) as HTMLDivElement;
+    const professionalExpChildNode = createProfessionalExperienceDiv() as HTMLDivElement;
     professionalExpContainerDiv.appendChild(professionalExpChildNode);
     const removeJobButtonsList = document.querySelectorAll('.removeJobButton') as NodeListOf<HTMLButtonElement>;
     configureRemoveButton(removeJobButtonsList[futureIndexInListOfJobs], futureIndexInListOfJobs);
@@ -132,7 +132,7 @@ function removeSpecificJobAt(index : number) {
     jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
 }
 
-function createProfessionalExperienceDiv(futureIndex : number) : HTMLDivElement {
+function createProfessionalExperienceDiv() : HTMLDivElement {
     let divElementProfessionalExp = document.createElement('div');
     const breakLine = document.createElement('br') as HTMLBRElement;
     divElementProfessionalExp.style.display = 'block';
