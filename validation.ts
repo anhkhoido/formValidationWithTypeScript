@@ -112,9 +112,24 @@ function createDivBoxForEducation() : HTMLDivElement {
 }
 
 function addProfessionalExperience() : void {
-    let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId');
-    const professionalExpChildNode = createProfessionalExperienceDiv();
-    professionalExpContainerDiv?.appendChild(professionalExpChildNode);
+    let professionalExpContainerDiv = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+    var futureIndexInListOfJobs = document.querySelectorAll('.removeJobButton').length;
+    const professionalExpChildNode = createProfessionalExperienceDiv() as HTMLDivElement;
+    professionalExpContainerDiv.appendChild(professionalExpChildNode);
+    const removeJobButtonsList = document.querySelectorAll('.removeJobButton') as NodeListOf<HTMLButtonElement>;
+    configureRemoveButton(removeJobButtonsList[futureIndexInListOfJobs], futureIndexInListOfJobs);
+}
+
+function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
+    button.addEventListener("click", function() {
+        removeSpecificJobAt(index);
+    }, false);
+}
+
+function removeSpecificJobAt(index : number) {
+    let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+    let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
+    jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
 }
 
 function createProfessionalExperienceDiv() : HTMLDivElement {
@@ -148,22 +163,12 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     fieldsAndInputsContainer.appendChild(positionInputField);
 
     divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
-
-    let listOfProfessionalExperiences : any = document.querySelector('#professionalExperienceContainerId');
-    let futureIndex : number = listOfProfessionalExperiences?.childElementCount;
    
     let removeButton = document.createElement('button') as HTMLButtonElement;
     removeButton.type = 'button';
-    removeButton.className = 'bi bi-trash';
+    removeButton.className = 'bi bi-trash removeJobButton';
 
     let buttonContainer = document.createElement('div');
-    removeButton.addEventListener("click", function() {
-        var listOfProfessionalExps : any = document.querySelector('#professionalExperienceContainerId');
-        if (listOfProfessionalExps?.hasChildNodes()) {
-            var children = listOfProfessionalExps.children;
-            listOfProfessionalExps.removeChild(children[futureIndex]);
-        }
-    }, false);
     buttonContainer.appendChild(removeButton);
     divElementProfessionalExp.appendChild(buttonContainer);
     return divElementProfessionalExp;
