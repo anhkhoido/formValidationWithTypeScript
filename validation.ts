@@ -149,18 +149,18 @@ function addProfessionalExperience() : void {
     professionalExpContainerDiv.appendChild(professionalExpChildNode);
     const removeJobButtonsList = document.querySelectorAll('.removeJobButton') as NodeListOf<HTMLButtonElement>;
     configureRemoveButton(removeJobButtonsList[futureIndexInListOfJobs], futureIndexInListOfJobs);
-}
 
-function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
-    button.addEventListener("click", function() {
-        removeSpecificJobAt(index);
-    }, false);
-}
+    function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
+        button.addEventListener("click", function() {
+            removeSpecificJobAt(index);
+        }, false);
 
-function removeSpecificJobAt(index : number) {
-    let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
-    let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
-    jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
+        function removeSpecificJobAt(index : number) : void {
+            let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+            let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
+            jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
+        }
+    }
 }
 
 function createProfessionalExperienceDiv() : HTMLDivElement {
