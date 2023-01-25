@@ -82,23 +82,16 @@ function addEducation() : void {
     fieldsetEducation.appendChild(childNodeDivBoxForEducation);
     const removeButtonsEducationList = document.querySelectorAll('.removeEducationButton') as NodeListOf<HTMLButtonElement>;
     configureRemoveButtonForEducation(removeButtonsEducationList[indexInListOfTrainings], indexInListOfTrainings);
-}
 
-function configureRemoveButtonForEducation(button : HTMLButtonElement, index : number) : void {
-    button.addEventListener("click", function() {
-        removeSpecificEducationAt(index);
-    }, false);
-}
-
-function removeSpecificEducationAt(index : number) {
-    let parentContainerWithEducation = document.getElementById('educationContainerId') as HTMLDivElement;
-    let educationSlatedForRemoval = parentContainerWithEducation.childNodes[index];
-    educationSlatedForRemoval.parentNode?.removeChild(educationSlatedForRemoval);
+    function configureRemoveButtonForEducation(button : HTMLButtonElement, index : number) : void {
+        button.addEventListener("click", function() {
+            removeSpecificEducationAt(index);
+        }, false);
+    }
 }
 
 function createDivBoxForEducation() : HTMLDivElement {
     let divBoxForEducation = document.createElement('div') as HTMLDivElement;
-    const breakLine = document.createElement('br') as HTMLBRElement;
     divBoxForEducation.style.display = 'block';
     divBoxForEducation.style.width = '70%';
     divBoxForEducation.style.borderColor = '#000';
@@ -109,18 +102,29 @@ function createDivBoxForEducation() : HTMLDivElement {
     
     let establishmentLegend = document.createElement('label');
     establishmentLegend.innerText = 'Establishment';
+    establishmentLegend.htmlFor = 'establishment';
     let establishmentInputField = document.createElement('input');
     establishmentInputField.type = 'text';
     let programLegend = document.createElement('label');
     programLegend.innerText = 'Program';
+    programLegend.htmlFor = 'program';
     let programInputField = document.createElement('input');
     programInputField.type = 'text';
 
+    let graduationDateLabel = document.createElement('label');
+    graduationDateLabel.innerText = 'Graduation';
+    graduationDateLabel.htmlFor = 'graduation';
+    let graduationDatePicker = document.createElement('input');
+    graduationDatePicker.type = 'datetime-local';
+
     divBoxForEducation.appendChild(establishmentLegend);
     divBoxForEducation.appendChild(establishmentInputField);
-    divBoxForEducation.appendChild(breakLine);
+    divBoxForEducation.appendChild(document.createElement('br'));
     divBoxForEducation.appendChild(programLegend);
     divBoxForEducation.appendChild(programInputField);
+    divBoxForEducation.appendChild(document.createElement('br'));
+    divBoxForEducation.appendChild(graduationDateLabel);
+    divBoxForEducation.appendChild(graduationDatePicker);
     
     let buttonContainer = document.createElement('div');
     let removeButton = document.createElement('button') as HTMLButtonElement;
@@ -130,6 +134,12 @@ function createDivBoxForEducation() : HTMLDivElement {
     divBoxForEducation.appendChild(buttonContainer);
 
     return divBoxForEducation;
+}
+
+function removeSpecificEducationAt(index : number) {
+    let parentContainerWithEducation = document.getElementById('educationContainerId') as HTMLDivElement;
+    let educationSlatedForRemoval = parentContainerWithEducation.childNodes[index];
+    educationSlatedForRemoval.parentNode?.removeChild(educationSlatedForRemoval);
 }
 
 function addProfessionalExperience() : void {
