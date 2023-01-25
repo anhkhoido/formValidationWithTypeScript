@@ -149,23 +149,22 @@ function addProfessionalExperience() : void {
     professionalExpContainerDiv.appendChild(professionalExpChildNode);
     const removeJobButtonsList = document.querySelectorAll('.removeJobButton') as NodeListOf<HTMLButtonElement>;
     configureRemoveButton(removeJobButtonsList[futureIndexInListOfJobs], futureIndexInListOfJobs);
-}
 
-function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
-    button.addEventListener("click", function() {
-        removeSpecificJobAt(index);
-    }, false);
-}
+    function configureRemoveButton(button : HTMLButtonElement, index : number) : void {
+        button.addEventListener("click", function() {
+            removeSpecificJobAt(index);
+        }, false);
 
-function removeSpecificJobAt(index : number) {
-    let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
-    let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
-    jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
+        function removeSpecificJobAt(index : number) : void {
+            let parentContainerWithJobs = document.getElementById('professionalExperienceContainerId') as HTMLDivElement;
+            let jobSlatedForRemoval = parentContainerWithJobs.childNodes[index] as HTMLDivElement;
+            jobSlatedForRemoval.parentNode?.removeChild(jobSlatedForRemoval);
+        }
+    }
 }
 
 function createProfessionalExperienceDiv() : HTMLDivElement {
     let divElementProfessionalExp = document.createElement('div');
-    const breakLine = document.createElement('br') as HTMLBRElement;
     divElementProfessionalExp.style.display = 'block';
     divElementProfessionalExp.style.width = '70%';
     divElementProfessionalExp.style.borderColor = '#000';
@@ -186,12 +185,32 @@ function createProfessionalExperienceDiv() : HTMLDivElement {
     let positionInputField = document.createElement('input');
     positionInputField.type = 'text';
 
+    let startDateLabel = document.createElement('label');
+    startDateLabel.innerText = 'Start date';
+    startDateLabel.htmlFor = 'start_date';
+    let startDateDatePicker = document.createElement('input');
+    startDateDatePicker.type = 'datetime-local';
+    startDateDatePicker.name = 'start_date';
+
+    let endDateLabel = document.createElement('label');
+    endDateLabel.innerText = 'End date';
+    endDateLabel.htmlFor = 'end_date';
+    let endDateDatePicker = document.createElement('input');
+    endDateDatePicker.type = 'datetime-local';
+    endDateDatePicker.name = 'end_date';
+
     let fieldsAndInputsContainer = document.createElement('div');
     fieldsAndInputsContainer.appendChild(employerLabel);
     fieldsAndInputsContainer.appendChild(employerInputField);
-    fieldsAndInputsContainer.appendChild(breakLine);
+    fieldsAndInputsContainer.appendChild(document.createElement('br'));
     fieldsAndInputsContainer.appendChild(positionLabel);
     fieldsAndInputsContainer.appendChild(positionInputField);
+    fieldsAndInputsContainer.appendChild(document.createElement('br'));
+    fieldsAndInputsContainer.appendChild(startDateLabel);
+    fieldsAndInputsContainer.appendChild(startDateDatePicker);
+    fieldsAndInputsContainer.appendChild(document.createElement('br'));
+    fieldsAndInputsContainer.appendChild(endDateLabel);
+    fieldsAndInputsContainer.appendChild(endDateDatePicker);
 
     divElementProfessionalExp.appendChild(fieldsAndInputsContainer);
    
