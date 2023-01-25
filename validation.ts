@@ -87,6 +87,12 @@ function addEducation() : void {
         button.addEventListener("click", function() {
             removeSpecificEducationAt(index);
         }, false);
+
+        function removeSpecificEducationAt(index : number) : void {
+            let parentContainerWithEducation = document.getElementById('educationContainerId') as HTMLDivElement;
+            let educationSlatedForRemoval = parentContainerWithEducation.childNodes[index];
+            educationSlatedForRemoval.parentNode?.removeChild(educationSlatedForRemoval);
+        }
     }
 }
 
@@ -134,12 +140,6 @@ function createDivBoxForEducation() : HTMLDivElement {
     divBoxForEducation.appendChild(buttonContainer);
 
     return divBoxForEducation;
-}
-
-function removeSpecificEducationAt(index : number) {
-    let parentContainerWithEducation = document.getElementById('educationContainerId') as HTMLDivElement;
-    let educationSlatedForRemoval = parentContainerWithEducation.childNodes[index];
-    educationSlatedForRemoval.parentNode?.removeChild(educationSlatedForRemoval);
 }
 
 function addProfessionalExperience() : void {
