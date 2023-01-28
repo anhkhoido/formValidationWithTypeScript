@@ -6,5 +6,10 @@ English | <a href="README-fr_FR.md">Fran&ccedil;ais</a>
 [<img align="left" alt="Anh Khoi Do | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />](https://twitter.com/anhkhoido)
 <br /><br />
 <p>This repository uses TypeScript as the client-side validation tool. The file index.html, the sole HTML file needed for this exercise, is a mock application form for a job.<p>
-<p>Lastly, because the source of the JS file is in a directory named script, this is how you must compile the TypeScript file named validation.ts:</p>
-<blockquote>tsc --outdir script validation.ts</blockquote>
+<p>Lastly, because the source of the JS file is in a directory named script, this is how you must compile the TypeScript file named validation.ts if you are in the root of this project:</p>
+```bash
+cd script
+```
+```bash
+tsc validation.ts
+```
