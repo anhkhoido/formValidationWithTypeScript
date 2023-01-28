@@ -1,4 +1,4 @@
-English | Fran&ccedil;ais
+<a href="README.md">English</a> | Fran&ccedil;ais
 ### Rejoignez-moi :
 [<img align="left" alt="Anh Khoi Do" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />](http://anhkhoido.com)
 [<img align="left" alt="Anh Khoi Do | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />](https://ca.linkedin.com/in/anhkhoido/en-us)
